@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/train.py", line 96, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/runners/DreamerRunner.py", line 51, in run
+    self.learner.step(rollout)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/learners/DreamerLearner.py", line 125, in step
+    self.train_agent(samples)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/learners/DreamerLearner.py", line 145, in train_agent
+    actions, av_actions, old_policy, imag_feat, imag_obs, returns = actor_rollout(samples['observation'],
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/optim/loss.py", line 55, in actor_rollout
+    items = rollout_policy(model.transition, model.av_action, config.HORIZON, actor, post)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/networks/dreamer/rnns.py", line 134, in rollout_policy
+    action, pi = policy(feat)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/networks/dreamer/action.py", line 16, in forward
+    x = self.feedforward_model(state_features)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (1440x1280 and 17x256)

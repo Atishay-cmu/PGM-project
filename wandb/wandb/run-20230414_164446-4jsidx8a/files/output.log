@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/content/gdrive/MyDrive/mamba_708_w_action_model/train.py", line 96, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/content/gdrive/MyDrive/mamba_708_w_action_model/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/content/gdrive/MyDrive/mamba_708_w_action_model/agent/runners/DreamerRunner.py", line 51, in run
+    self.learner.step(rollout)
+  File "/content/gdrive/MyDrive/mamba_708_w_action_model/agent/learners/DreamerLearner.py", line 114, in step
+    self.train_action_model(samples2)
+  File "/content/gdrive/MyDrive/mamba_708_w_action_model/agent/learners/DreamerLearner.py", line 133, in train_action_model
+    self.apply_optimizer(self.action_model_optimizer, self.action_model, loss, self.config.GRAD_CLIP)
+  File "/content/gdrive/MyDrive/mamba_708_w_action_model/agent/learners/DreamerLearner.py", line 169, in apply_optimizer
+    loss.backward()
+  File "/usr/local/lib/python3.9/dist-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/usr/local/lib/python3.9/dist-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

@@ -1,0 +1,42 @@
+
+DEPRECATED - RailEnv arg: malfunction_and_process_data - use malfunction_generator
+Traceback (most recent call last):
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/train.py", line 96, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/runners/DreamerRunner.py", line 50, in run
+    rollout, info = self.worker.run(self.learner.model, self.learner.action_model, self.learner.actor)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/workers/DreamerWorker.py", line 96, in run
+    actions, obs, fakes, av_actions = self._select_actions(state, model, action_model, actor)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/workers/DreamerWorker.py", line 59, in _select_actions
+    actions = self.controller.step(observations, av_action, nn_mask, model, action_model, actor)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/controllers/DreamerController.py", line 83, in step
+    action_model_state = self.get_latent_states(action_model, observations, nn_mask)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/controllers/DreamerController.py", line 57, in get_latent_states
+    action_model_state = ac_model.transition(obs.to(self.device), self.prev_a_latent_state, nn_mask)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/networks/dreamer/action_model_rnns.py", line 104, in forward
+    attn = self._attention_stack(stoch_input, mask=mask)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/networks/transformer/layers.py", line 42, in forward
+    x = self.encoder(enc_input.permute(1, 0, 2), **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/transformer.py", line 306, in forward
+    output = mod(output, src_mask=mask, is_causal=is_causal, src_key_padding_mask=src_key_padding_mask_for_layers)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/transformer.py", line 573, in forward
+    x = self.norm1(x + self._sa_block(x, src_mask, src_key_padding_mask))
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/transformer.py", line 581, in _sa_block
+    x = self.self_attn(x, x, x,
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/activation.py", line 1189, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/functional.py", line 5334, in multi_head_attention_forward
+    attn_output = scaled_dot_product_attention(q, k, v, attn_mask, dropout_p, is_causal)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!

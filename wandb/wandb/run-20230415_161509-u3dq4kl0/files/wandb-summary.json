@@ -1,0 +1,1 @@
+{"Model/reward_loss": 0.04028631001710892, "Model/div": 0.10803438723087311, "Model/av_action_loss": 0.03312644362449646, "Model/reconstruction_loss": 0.03202167525887489, "Model/info_loss": 4.1326267819385976e-05, "Model/pcont_loss": 0.0035375456791371107, "_timestamp": 1681578130.1026807, "_runtime": 2820.1291196346283, "_step": 1301}

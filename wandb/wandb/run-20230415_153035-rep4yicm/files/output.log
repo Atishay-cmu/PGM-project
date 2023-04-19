@@ -1,0 +1,34 @@
+Traceback (most recent call last):
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/train.py", line 96, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/runners/DreamerRunner.py", line 50, in run
+    rollout, info = self.worker.run(self.learner.model, self.learner.actor)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/workers/DreamerWorker.py", line 96, in run
+    actions, obs, fakes, av_actions = self._select_actions(state, model, actor)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/workers/DreamerWorker.py", line 59, in _select_actions
+    actions = self.controller.step(observations, av_action, nn_mask, model, actor)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/controllers/DreamerController.py", line 81, in step
+    state = model(observations.to(self.device), self.prev_actions, self.prev_rnn_state, nn_mask)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/models/DreamerModel.py", line 41, in forward
+    return self.get_state_representation(observations, prev_actions, prev_states, mask)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/models/DreamerModel.py", line 50, in get_state_representation
+    obs_embeds = self.observation_encoder(observations)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/networks/dreamer/vae.py", line 29, in forward
+    return self.encoder(F.relu(embed))
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/activation.py", line 103, in forward
+    return F.relu(input, inplace=self.inplace)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/functional.py", line 1457, in relu
+    result = torch.relu(input)
+KeyboardInterrupt

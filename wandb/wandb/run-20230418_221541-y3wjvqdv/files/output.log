@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/train.py", line 96, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/runners/DreamerRunner.py", line 51, in run
+    self.learner.step(rollout)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/learners/DreamerLearner.py", line 133, in step
+    self.train_agent(samples)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/learners/DreamerLearner.py", line 178, in train_agent
+    loss = actor_loss(self.index_latents(am_priors, idx), self.index_latents(am_posteriors, idx), self.index_latents(prev_policy_latents, idx),\
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/learners/DreamerLearner.py", line 144, in index_latents
+    return y.map(lambda x: x[idxes])
+AttributeError: 'numpy.ndarray' object has no attribute 'map'

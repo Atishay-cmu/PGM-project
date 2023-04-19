@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/train.py", line 96, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/runners/DreamerRunner.py", line 51, in run
+    self.learner.step(rollout)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/learners/DreamerLearner.py", line 133, in step
+    self.train_agent(samples)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/learners/DreamerLearner.py", line 157, in train_agent
+    actions, am_priors, am_posteriors, prev_policy_latents, av_actions, old_policy, imag_feat, imag_obs, returns = actor_rollout(samples['observation'],
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/agent/optim/loss.py", line 69, in actor_rollout
+    items = rollout_policy(config, action_model, model, model.transition, model.av_action, config.HORIZON, actor, post, prev_action_model_state, prev_policy_latent_state)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/networks/dreamer/rnns.py", line 207, in rollout_policy
+    "prev_policy_latents": a_stack_states(prev_policy_latent_states, config, dim=0),
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/networks/dreamer/action_model_rnns.py", line 11, in stack_states
+    return reduce_states(rssm_states, dim, config, torch.stack)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/networks/dreamer/action_model_rnns.py", line 21, in reduce_states
+    for key in rssm_states[0].__dict__.keys()])
+AttributeError: 'NoneType' object has no attribute '__dict__'

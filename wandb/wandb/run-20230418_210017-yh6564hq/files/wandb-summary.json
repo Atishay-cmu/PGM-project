@@ -1,0 +1,1 @@
+{"reward": 0.0, "steps": 362, "_timestamp": 1681851644.9985392, "_runtime": 27.896536111831665, "_step": 3, "Model/reward_loss": 0.012802188284695148, "Model/div": 0.4785749316215515, "Model/av_action_loss": 2.8477675914764404, "Model/reconstruction_loss": 1.008048176765442, "Model/info_loss": 1.7660290002822876, "Model/pcont_loss": 0.07875289767980576, "_wandb": {"runtime": 33}}

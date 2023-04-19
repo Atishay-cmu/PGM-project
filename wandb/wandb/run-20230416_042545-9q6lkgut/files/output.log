@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/train.py", line 96, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/runners/DreamerRunner.py", line 51, in run
+    self.learner.step(rollout)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/learners/DreamerLearner.py", line 118, in step
+    self.train_model(samples1)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/learners/DreamerLearner.py", line 129, in train_model
+    loss = model_loss(self.config, self.model, samples['observation'], samples['action'], samples['av_action'],
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/optim/loss.py", line 21, in model_loss
+    prior, post, deters = rollout_representation(config, model.representation, time_steps, embed, action, prev_state, last)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/networks/dreamer/rnns.py", line 173, in rollout_representation
+    prior_states, posterior_states = representation_model(obs_embed[t], action[t], prev_states)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/networks/dreamer/rnns.py", line 156, in forward
+    mean, std, stoch_state = self._stochastic_posterior_model(x)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/networks/dreamer/rnns.py", line 64, in forward
+    x_latents = self.dists(x).view(x.shape[0], x.shape[1], self.n_latents*2)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+KeyboardInterrupt

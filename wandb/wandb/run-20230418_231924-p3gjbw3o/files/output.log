@@ -1,0 +1,23 @@
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/lib/exit_hooks.py", line 42, in exc_handler
+    def exc_handler(
+KeyboardInterrupt
+Original exception was:
+Traceback (most recent call last):
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/train.py", line 96, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/runners/DreamerRunner.py", line 51, in run
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/learners/DreamerLearner.py", line 125, in step
+    samples1 = self.replay_buffer.sample1(self.config.MODEL_BATCH_SIZE)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/memory/DreamerMemory.py", line 49, in sample1
+    return self.get_transitions1(self.sample_positions(batch_size))
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/memory/DreamerMemory.py", line 96, in sample_positions
+    return np.asarray([self.sample_position() for _ in range(batch_size)])
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/memory/DreamerMemory.py", line 96, in <listcomp>
+    return np.asarray([self.sample_position() for _ in range(batch_size)])
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/memory/DreamerMemory.py", line 92, in sample_position
+    valid_idx = self.next_idx not in idxs[1:]  # Make sure data does not cross the memory index
+KeyboardInterrupt

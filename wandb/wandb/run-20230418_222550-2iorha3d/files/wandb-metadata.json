@@ -1,0 +1,56 @@
+{
+    "os": "Linux-5.10.147+-x86_64-with-glibc2.31",
+    "python": "3.9.16",
+    "heartbeatAt": "2023-04-18T22:25:51.039991",
+    "startedAt": "2023-04-18T22:25:50.295971",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--env",
+        "starcraft",
+        "--n_workers",
+        "1",
+        "--env_name",
+        "2s_vs_1sc"
+    ],
+    "state": "running",
+    "program": "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/train.py",
+    "codePath": "train.py",
+    "host": "6cf89a7717dd",
+    "username": "root",
+    "executable": "/usr/bin/python3",
+    "cpu_count": 1,
+    "cpu_count_logical": 2,
+    "cpu_freq": {
+        "current": 2000.138,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2000.138,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2000.138,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "total": 78.1898422241211,
+        "used": 30.589069366455078
+    },
+    "gpu": "Tesla T4",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "Tesla T4",
+            "memory_total": 16106127360
+        }
+    ],
+    "memory": {
+        "total": 12.681190490722656
+    }
+}

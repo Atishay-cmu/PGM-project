@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/train.py", line 96, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/runners/DreamerRunner.py", line 51, in run
+    self.learner.step(rollout)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/learners/DreamerLearner.py", line 118, in step
+    self.train_model(samples1)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/learners/DreamerLearner.py", line 129, in train_model
+    loss = model_loss(self.config, self.model, samples['observation'], samples['action'], samples['av_action'],
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/optim/loss.py", line 21, in model_loss
+    prior, post, deters = rollout_representation(config, model.representation, time_steps, embed, action, prev_state, last)
+TypeError: rollout_representation() takes 6 positional arguments but 7 were given

@@ -1,0 +1,121 @@
+2023-04-18 20:54:14,773 INFO    MainThread:4059 [wandb_setup.py:_flush():76] Configure stats pid to 4059
+2023-04-18 20:54:14,775 INFO    MainThread:4059 [wandb_setup.py:_flush():76] Loading settings from /root/.config/wandb/settings
+2023-04-18 20:54:14,775 INFO    MainThread:4059 [wandb_setup.py:_flush():76] Loading settings from /content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/wandb/settings
+2023-04-18 20:54:14,775 INFO    MainThread:4059 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-04-18 20:54:14,775 INFO    MainThread:4059 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-04-18 20:54:14,775 INFO    MainThread:4059 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program': '/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/mamba_708_categ_action_model/train.py'}
+2023-04-18 20:54:14,776 INFO    MainThread:4059 [wandb_init.py:_log_setup():507] Logging user logs to wandb/wandb/run-20230418_205414-qrw0bj81/logs/debug.log
+2023-04-18 20:54:14,776 INFO    MainThread:4059 [wandb_init.py:_log_setup():508] Logging internal logs to wandb/wandb/run-20230418_205414-qrw0bj81/logs/debug-internal.log
+2023-04-18 20:54:14,776 INFO    MainThread:4059 [wandb_init.py:init():547] calling init triggers
+2023-04-18 20:54:14,776 INFO    MainThread:4059 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {}
+2023-04-18 20:54:14,776 INFO    MainThread:4059 [wandb_init.py:init():595] starting backend
+2023-04-18 20:54:14,776 INFO    MainThread:4059 [wandb_init.py:init():599] setting up manager
+2023-04-18 20:54:14,781 INFO    MainThread:4059 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-04-18 20:54:14,787 INFO    MainThread:4059 [wandb_init.py:init():605] backend started and connected
+2023-04-18 20:54:14,790 INFO    MainThread:4059 [wandb_init.py:init():695] updated telemetry
+2023-04-18 20:54:14,808 INFO    MainThread:4059 [wandb_init.py:init():732] communicating run to backend with 60.0 second timeout
+2023-04-18 20:54:43,968 WARNING MainThread:4059 [wandb_init.py:init():1167] interrupted
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/wandb_init.py", line 1145, in init
+    run = wi.init()
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/wandb_init.py", line 735, in init
+    result = run_init_handle.wait(
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/lib/mailbox.py", line 283, in wait
+    found, abandoned = self._slot._get_and_clear(timeout=wait_timeout)
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/lib/mailbox.py", line 130, in _get_and_clear
+    if self._wait(timeout=timeout):
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/lib/mailbox.py", line 126, in _wait
+    return self._event.wait(timeout=timeout)
+  File "/usr/lib/python3.9/threading.py", line 581, in wait
+    signaled = self._cond.wait(timeout)
+  File "/usr/lib/python3.9/threading.py", line 316, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/wandb_init.py", line 1153, in init
+    getcaller()
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/wandb_init.py", line 831, in getcaller
+    src, line, func, stack = logger.findCaller(stack_info=True)
+  File "/usr/lib/python3.9/logging/__init__.py", line 1541, in findCaller
+    traceback.print_stack(f, file=sio)
+  File "/usr/lib/python3.9/traceback.py", line 190, in print_stack
+    print_list(extract_stack(f, limit=limit), file=file)
+  File "/usr/lib/python3.9/traceback.py", line 211, in extract_stack
+    stack = StackSummary.extract(walk_stack(f), limit=limit)
+  File "/usr/lib/python3.9/traceback.py", line 366, in extract
+    f.line
+  File "/usr/lib/python3.9/traceback.py", line 288, in line
+    self._line = linecache.getline(self.filename, self.lineno).strip()
+  File "/usr/lib/python3.9/linecache.py", line 30, in getline
+    lines = getlines(filename, module_globals)
+  File "/usr/lib/python3.9/linecache.py", line 46, in getlines
+    return updatecache(filename, module_globals)
+  File "/usr/lib/python3.9/linecache.py", line 137, in updatecache
+    lines = fp.readlines()
+KeyboardInterrupt
+2023-04-18 20:54:50,259 INFO    Thread-1  :4059 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/usr/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.9/ssl.py", line 1242, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.9/ssl.py", line 1100, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py", line 340, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/internal/internal_api.py", line 285, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/usr/local/lib/python3.9/dist-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/lib/gql_request.py", line 55, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/usr/local/lib/python3.9/dist-packages/requests/sessions.py", line 577, in post
+    return self.request('POST', url, data=data, json=json, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/requests/adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.wandb.ai', port=443): Read timed out. (read timeout=10)

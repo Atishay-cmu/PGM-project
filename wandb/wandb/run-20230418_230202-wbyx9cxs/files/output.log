@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/train.py", line 96, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/runners/DreamerRunner.py", line 51, in run
+    self.learner.step(rollout)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/learners/DreamerLearner.py", line 133, in step
+    self.train_agent(samples)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/learners/DreamerLearner.py", line 159, in train_agent
+    list_vals, am_priors, am_posteriors, prev_policy_latents = actor_rollout(samples['observation'],
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/agent/optim/loss.py", line 70, in actor_rollout
+    items = rollout_policy(config, action_model, model, model.transition, model.av_action, config.HORIZON, actor, post, prev_action_model_state, prev_policy_latent_state)
+  File "/content/gdrive/.shortcut-targets-by-id/11LtEVzXkuxeMRaphtv1mvl4gTyvST0vX/pgmproj/networks/dreamer/rnns.py", line 198, in rollout_policy
+    prev_policy_latent_state = deepcopy(policy_latent_state)
+  File "/usr/lib/python3.9/copy.py", line 172, in deepcopy
+    y = _reconstruct(x, memo, *rv)
+  File "/usr/lib/python3.9/copy.py", line 270, in _reconstruct
+    state = deepcopy(state, memo)
+  File "/usr/lib/python3.9/copy.py", line 146, in deepcopy
+    y = copier(x, memo)
+  File "/usr/lib/python3.9/copy.py", line 230, in _deepcopy_dict
+    y[deepcopy(key, memo)] = deepcopy(value, memo)
+  File "/usr/lib/python3.9/copy.py", line 153, in deepcopy
+    y = copier(memo)
+  File "/usr/local/lib/python3.9/dist-packages/torch/_tensor.py", line 86, in __deepcopy__
+    raise RuntimeError(
+RuntimeError: Only Tensors created explicitly by the user (graph leaves) support the deepcopy protocol at the moment

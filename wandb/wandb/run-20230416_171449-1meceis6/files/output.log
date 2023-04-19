@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/train.py", line 96, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/runners/DreamerRunner.py", line 51, in run
+    self.learner.step(rollout)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/learners/DreamerLearner.py", line 133, in step
+    self.train_agent(samples)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/learners/DreamerLearner.py", line 153, in train_agent
+    actions, av_actions, old_policy, imag_feat, imag_obs, returns = actor_rollout(samples['observation'],
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/optim/loss.py", line 58, in actor_rollout
+    print(post.shape)
+AttributeError: 'RSSMStateDiscrete' object has no attribute 'shape'

@@ -1,0 +1,773 @@
+nohup: ignoring input
+wandb: Currently logged in as: aravindvenugopal19. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.13.9 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.13.7
+wandb: Run data is saved locally in wandb/wandb/run-20230120_114402-351wdpsm
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run chocolate-dragon-101
+wandb: ⭐️ View project at https://wandb.ai/aravindvenugopal19/starcraft_corridor
+wandb: 🚀 View run at https://wandb.ai/aravindvenugopal19/starcraft_corridor/runs/351wdpsm
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 45947 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-_osu3ug1/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:45947 (45947)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+unable to parse websocket frame.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 33795 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-9yipkc1a/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:33795 (33795)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+unable to parse websocket frame.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 41287 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-fa5dwyna/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:41287 (41287)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+Closing Application...
+unable to parse websocket frame.
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 37931 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-w4397rgu/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:37931 (37931)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+Closing Application...
+unable to parse websocket frame.
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 35993 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-ey7h1obm/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:35993 (35993)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+unable to parse websocket frame.
+RequestQuit command received.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 40425 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-w6838qz9/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:40425 (40425)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+unable to parse websocket frame.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 32851 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-mp_g80te/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:32851 (32851)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+unable to parse websocket frame.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 41571 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-fglhbhr1/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:41571 (41571)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+Closing Application...
+unable to parse websocket frame.
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 43417 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-t5t2i9k9/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:43417 (43417)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+unable to parse websocket frame.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 40003 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-r4qeglnh/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:40003 (40003)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+unable to parse websocket frame.
+RequestQuit command received.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 42997 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-p88jcdcg/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:42997 (42997)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+unable to parse websocket frame.
+RequestQuit command received.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 40663 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-fp7vj9w4/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:40663 (40663)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+unable to parse websocket frame.
+RequestQuit command received.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 45677 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-8ip6haoa/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:45677 (45677)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+unable to parse websocket frame.
+RequestQuit command received.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 43491 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-fo9ve_wr/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:43491 (43491)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+unable to parse websocket frame.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 41643 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-d6sif6cv/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:41643 (41643)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+Closing Application...
+unable to parse websocket frame.
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 45479 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-tnu21tw_/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:45479 (45479)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+unable to parse websocket frame.
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 44285 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-xwcqrj6w/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:44285 (44285)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+unable to parse websocket frame.
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 42461 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-3nwnms68/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:42461 (42461)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+unable to parse websocket frame.
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 36201 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-twx_7abb/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:36201 (36201)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+unable to parse websocket frame.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 44605 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-pa2_tix8/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:44605 (44605)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+unable to parse websocket frame.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 43229 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-d7bum71h/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:43229 (43229)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+unable to parse websocket frame.
+RequestQuit command received.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 34525 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-cveip_ht/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:34525 (34525)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+RequestQuit command received.
+unable to parse websocket frame.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 40137 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-txsafrxe/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:40137 (40137)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+unable to parse websocket frame.
+RequestQuit command received.
+Closing Application...
+Version: B59877 (SC2.4.0)
+Build: Nov 27 2017 21:52:46
+Command Line: '"/home/avenugo2/StarCraftII/Versions/Base59877/SC2_x64" -listen 127.0.0.1 -port 33989 -dataDir /home/avenugo2/StarCraftII/ -tempDir /tmp/sc-on3n8csi/'
+Starting up...
+Startup Phase 1 complete
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:33989 (33989)
+Startup Phase 3 complete. Ready for commands.
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Entering load game phase.
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Sending ResponseJoinGame
+Traceback (most recent call last):
+  File "/home/avenugo2/files/mamba_sc_latest/train.py", line 95, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/home/avenugo2/files/mamba_sc_latest/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/home/avenugo2/files/mamba_sc_latest/agent/runners/DreamerRunner.py", line 51, in run
+    self.learner.step(rollout)
+  File "/home/avenugo2/files/mamba_sc_latest/agent/learners/DreamerLearner.py", line 109, in step
+    self.train_agent(samples)
+  File "/home/avenugo2/files/mamba_sc_latest/agent/learners/DreamerLearner.py", line 119, in train_agent
+    actions, av_actions, old_policy, imag_feat, returns = actor_rollout(samples['observation'],
+  File "/home/avenugo2/files/mamba_sc_latest/agent/optim/loss.py", line 55, in actor_rollout
+    items = rollout_policy(model.transition, model.av_action, config.HORIZON, actor, post)
+  File "/home/avenugo2/files/mamba_sc_latest/networks/dreamer/rnns.py", line 144, in rollout_policy
+    state = transition_model(action, state)
+  File "/home/avenugo2/anaconda3/envs/smac_test_clone/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/avenugo2/files/mamba_sc_latest/networks/dreamer/rnns.py", line 64, in forward
+    logits, stoch_state = self._stochastic_prior_model(deter_state)
+  File "/home/avenugo2/anaconda3/envs/smac_test_clone/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/avenugo2/files/mamba_sc_latest/networks/dreamer/rnns.py", line 34, in forward
+    one_hot = class_dist.sample()
+  File "/home/avenugo2/anaconda3/envs/smac_test_clone/lib/python3.10/site-packages/torch/distributions/one_hot_categorical.py", line 85, in sample
+    indices = self._categorical.sample(sample_shape)
+  File "/home/avenugo2/anaconda3/envs/smac_test_clone/lib/python3.10/site-packages/torch/distributions/categorical.py", line 112, in sample
+    samples_2d = torch.multinomial(probs_2d, sample_shape.numel(), True).T
+KeyboardInterrupt
+RequestQuit command received.
+Closing Application...
+unable to parse websocket frame.
+wandb: Waiting for W&B process to finish... (failed 255). Press Control-C to abort syncing.
+wandb: - 0.012 MB of 0.012 MB uploaded (0.000 MB deduped)wandb: \ 0.012 MB of 0.023 MB uploaded (0.000 MB deduped)wandb: | 0.024 MB of 0.024 MB uploaded (0.000 MB deduped)wandb: 
+wandb: Run history:
+wandb:             Agent/Returns ▁█▄▆▆▆▇▇▇▇▇▇▇▇▇▇▇██▇▇▇▇▇▇▇█▇▇▇▇▇▇▇▇▇▆▇▇▇
+wandb:          Agent/actor_loss ▃▄▃▃▃▃▄█▄▄▄▄▅▂▄▄▄▃▄▂▃▂▂▁▄▃▃▂▄▄▄▃▃▁▄▄▃▄▃▄
+wandb:            Agent/val_loss ▄██▅▄▄▃▃▃▃▂▂▃▁▄▃▂▂▃▁▃▁▁▁▃▂▂▂▃▂▄▂▁▂▂▃▂▃▂▄
+wandb:      Model/av_action_loss █▃▃▅▂▁▂▃▄▄▂▃▃▃▂▁▂▃▄▂▁▁▂▂▃▂▂▃▃▄▂▃▃▂▃▂▂▂▂▃
+wandb:                 Model/div █▅▄▃▂▂▂▂▂▂▂▂▂▂▂▂▂▁▂▁▁▂▁▂▂▂▁▂▁▂▁▂▁▂▂▂▁▂▁▁
+wandb:           Model/info_loss █▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:          Model/pcont_loss █▄▂▄▄▁▁▃▂▁▂▂▁▂▂▁▅▄▂▁▁▁▂▄▁▂▁▅▂▄▃▅▂▁▅▁▂▁▁▅
+wandb: Model/reconstruction_loss █▄▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         Model/reward_loss ▁▃▃▅▄▂▂▇▂▂▂▂▅▂▂▂█▅▃▁▂▂▂▅▂▅▁▆▂▂▃▆▅▁▄▁▃▁▂▂
+wandb:            Policy/Entropy ▂▂▄▆▁▅▇█▂█▇▇█████████▇▇███▇██████████▇▇▇
+wandb:        Policy/Mean action ▁▁▃▃▁▄▅▄▃▆▇▄▄▅▄▆▅▆▄▄▃▄▆▆▇███▇▅▅▆▅▅▆▅▆▃▄▅
+wandb:            Value/Discount ▇█▄▄▅▄▅▄▂▃▂▃▃▄▂▂▃▂▅▃▂▃▂▁▃▂▂▂▄▂▁▂▂▂▁▁▁▁▃▃
+wandb:          Value/Max reward ▁█▇▇██▇▇█▇█▇███████████▇▇█████▇█████████
+wandb:          Value/Min reward ▇▄▅▅▇▆▆▇▅█▅▇▆▇▆▅▅▇█▆▁▆▇█▇▇▇▇▅▇▇▅▅█▇▇▇▇▄▇
+wandb:              Value/Reward ▁▃▄▅▅▅▆▆█▆▇▆▇▇▇▇▇▇▆▇█▆▇█▆▇██▆▇▇▇▇▇▇▇▇▇▇▇
+wandb:               Value/Value ▁█▄▆▆▆▇▇▇▆▆▇▇▇▇▇▇██▇▇▇▇▇▇▇▇▇▇▇▇▇▇▆▇▆▆▇▇▇
+wandb:                    reward █▁███▁█████████████▁████▁████▁████████▁█
+wandb:                     steps ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb: 
+wandb: Run summary:
+wandb:             Agent/Returns 8.5886
+wandb:          Agent/actor_loss 0.01198
+wandb:            Agent/val_loss 0.49805
+wandb:      Model/av_action_loss 0.01136
+wandb:                 Model/div 0.07716
+wandb:           Model/info_loss 3e-05
+wandb:          Model/pcont_loss 0.00117
+wandb: Model/reconstruction_loss 0.0114
+wandb:         Model/reward_loss 0.01097
+wandb:            Policy/Entropy -0.08728
+wandb:        Policy/Mean action 5.65033
+wandb:            Value/Discount 0.61638
+wandb:          Value/Max reward 12.33122
+wandb:          Value/Min reward -0.15376
+wandb:              Value/Reward 0.72699
+wandb:               Value/Value 8.19859
+wandb:                    reward 1.0
+wandb:                     steps 52873
+wandb: 
+wandb: Synced chocolate-dragon-101: https://wandb.ai/aravindvenugopal19/starcraft_corridor/runs/351wdpsm
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: wandb/wandb/run-20230120_114402-351wdpsm/logs

@@ -1,0 +1,84 @@
+2023-04-18 20:54:14,789 INFO    StreamThr :4080 [internal.py:wandb_internal():86] W&B internal server running at pid: 4080, started at: 2023-04-18 20:54:14.787377
+2023-04-18 20:54:14,795 DEBUG   HandlerThread:4080 [handler.py:handle_request():144] handle_request: status
+2023-04-18 20:54:14,802 INFO    WriterThread:4080 [datastore.py:open_for_write():85] open: wandb/wandb/run-20230418_205414-qrw0bj81/run-qrw0bj81.wandb
+2023-04-18 20:54:14,805 DEBUG   SenderThread:4080 [sender.py:send():375] send: header
+2023-04-18 20:54:14,809 DEBUG   SenderThread:4080 [sender.py:send():375] send: run
+2023-04-18 20:54:19,810 DEBUG   HandlerThread:4080 [handler.py:handle_request():144] handle_request: keepalive
+2023-04-18 20:54:24,811 DEBUG   HandlerThread:4080 [handler.py:handle_request():144] handle_request: keepalive
+2023-04-18 20:54:29,813 DEBUG   HandlerThread:4080 [handler.py:handle_request():144] handle_request: keepalive
+2023-04-18 20:54:34,814 DEBUG   HandlerThread:4080 [handler.py:handle_request():144] handle_request: keepalive
+2023-04-18 20:54:39,815 DEBUG   HandlerThread:4080 [handler.py:handle_request():144] handle_request: keepalive
+2023-04-18 20:54:44,530 DEBUG   HandlerThread:4080 [handler.py:handle_request():144] handle_request: shutdown
+2023-04-18 20:54:44,530 INFO    HandlerThread:4080 [handler.py:finish():845] shutting down handler
+2023-04-18 20:54:44,813 INFO    WriterThread:4080 [datastore.py:close():298] close: wandb/wandb/run-20230418_205414-qrw0bj81/run-qrw0bj81.wandb
+2023-04-18 20:54:52,385 INFO    SenderThread:4080 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.9/http/client.py", line 1377, in getresponse
+    response.begin()
+  File "/usr/lib/python3.9/http/client.py", line 320, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.9/http/client.py", line 281, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.9/ssl.py", line 1242, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.9/ssl.py", line 1100, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/requests/adapters.py", line 440, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py", line 340, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/internal/internal_api.py", line 285, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/usr/local/lib/python3.9/dist-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/wandb/sdk/lib/gql_request.py", line 55, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/usr/local/lib/python3.9/dist-packages/requests/sessions.py", line 577, in post
+    return self.request('POST', url, data=data, json=json, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/requests/sessions.py", line 529, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/requests/sessions.py", line 645, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/requests/adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.wandb.ai', port=443): Read timed out. (read timeout=10)
+2023-04-18 20:57:51,888 INFO    SenderThread:4080 [dir_watcher.py:__init__():219] watching files in: wandb/wandb/run-20230418_205414-qrw0bj81/files
+2023-04-18 20:57:51,888 INFO    SenderThread:4080 [sender.py:_start_run_threads():1124] run started: qrw0bj81 with start time 1681851254.787965
+2023-04-18 20:57:51,889 INFO    SenderThread:4080 [sender.py:finish():1550] shutting down sender
+2023-04-18 20:57:51,889 INFO    SenderThread:4080 [dir_watcher.py:finish():365] shutting down directory watcher
+2023-04-18 20:57:52,890 INFO    SenderThread:4080 [dir_watcher.py:finish():395] scan: wandb/wandb/run-20230418_205414-qrw0bj81/files
+2023-04-18 20:57:52,891 INFO    SenderThread:4080 [dir_watcher.py:finish():409] scan save: wandb/wandb/run-20230418_205414-qrw0bj81/files/config.yaml config.yaml
+2023-04-18 20:57:52,893 INFO    SenderThread:4080 [file_pusher.py:finish():168] shutting down file pusher
+2023-04-18 20:57:52,893 INFO    SenderThread:4080 [file_pusher.py:join():173] waiting for file pusher
+2023-04-18 20:57:53,798 INFO    wandb-upload_0:4080 [upload_job.py:push():137] Uploaded file wandb/wandb/run-20230418_205414-qrw0bj81/files/config.yaml

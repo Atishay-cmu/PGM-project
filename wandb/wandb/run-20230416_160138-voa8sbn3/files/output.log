@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/train.py", line 96, in <module>
+    train_dreamer(exp, n_workers=args.n_workers)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/train.py", line 23, in train_dreamer
+    runner.run(exp.steps, exp.episodes)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/runners/DreamerRunner.py", line 50, in run
+    rollout, info = self.worker.run(self.learner.model, self.learner.action_model, self.learner.actor)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/workers/DreamerWorker.py", line 96, in run
+    actions, obs, fakes, av_actions = self._select_actions(state, model, action_model, actor)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/workers/DreamerWorker.py", line 59, in _select_actions
+    actions = self.controller.step(observations, av_action, nn_mask, model, action_model, actor)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/controllers/DreamerController.py", line 76, in step
+    state, action_model_state = self.get_latent_states(model, action_model, observations, nn_mask)
+  File "/content/gdrive/MyDrive/mamba_708_categ_action_model/agent/controllers/DreamerController.py", line 59, in get_latent_states
+    action_model_state = ac_model(obs.to(self.device), self.prev_a_latent_state, nn_mask)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 363, in _forward_unimplemented
+    raise NotImplementedError(f"Module [{type(self).__name__}] is missing the required \"forward\" function")
+NotImplementedError: Module [ActionModel] is missing the required "forward" function

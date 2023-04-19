@@ -1,0 +1,26 @@
+2023-04-14 16:22:33,213 INFO    MainThread:3883 [wandb_setup.py:_flush():76] Configure stats pid to 3883
+2023-04-14 16:22:33,214 INFO    MainThread:3883 [wandb_setup.py:_flush():76] Loading settings from /root/.config/wandb/settings
+2023-04-14 16:22:33,214 INFO    MainThread:3883 [wandb_setup.py:_flush():76] Loading settings from /content/gdrive/MyDrive/mamba_708_w_action_model/wandb/settings
+2023-04-14 16:22:33,214 INFO    MainThread:3883 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-04-14 16:22:33,214 INFO    MainThread:3883 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-04-14 16:22:33,214 INFO    MainThread:3883 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program': '/content/gdrive/MyDrive/mamba_708_w_action_model/train.py'}
+2023-04-14 16:22:33,215 INFO    MainThread:3883 [wandb_setup.py:_flush():76] Applying login settings: {'api_key': '***REDACTED***'}
+2023-04-14 16:22:33,215 INFO    MainThread:3883 [wandb_init.py:_log_setup():507] Logging user logs to wandb/wandb/run-20230414_162233-er4jg27c/logs/debug.log
+2023-04-14 16:22:33,215 INFO    MainThread:3883 [wandb_init.py:_log_setup():508] Logging internal logs to wandb/wandb/run-20230414_162233-er4jg27c/logs/debug-internal.log
+2023-04-14 16:22:33,215 INFO    MainThread:3883 [wandb_init.py:init():547] calling init triggers
+2023-04-14 16:22:33,216 INFO    MainThread:3883 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {}
+2023-04-14 16:22:33,216 INFO    MainThread:3883 [wandb_init.py:init():595] starting backend
+2023-04-14 16:22:33,216 INFO    MainThread:3883 [wandb_init.py:init():599] setting up manager
+2023-04-14 16:22:33,219 INFO    MainThread:3883 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-04-14 16:22:33,224 INFO    MainThread:3883 [wandb_init.py:init():605] backend started and connected
+2023-04-14 16:22:33,228 INFO    MainThread:3883 [wandb_init.py:init():695] updated telemetry
+2023-04-14 16:22:33,232 INFO    MainThread:3883 [wandb_init.py:init():732] communicating run to backend with 60.0 second timeout
+2023-04-14 16:22:33,789 INFO    MainThread:3883 [wandb_run.py:_on_init():2176] communicating current version
+2023-04-14 16:22:33,827 INFO    MainThread:3883 [wandb_run.py:_on_init():2185] got version response 
+2023-04-14 16:22:33,828 INFO    MainThread:3883 [wandb_init.py:init():782] starting run threads in backend
+2023-04-14 16:22:33,930 INFO    MainThread:3883 [wandb_run.py:_console_start():2157] atexit reg
+2023-04-14 16:22:33,931 INFO    MainThread:3883 [wandb_run.py:_redirect():2012] redirect: SettingsConsole.WRAP_RAW
+2023-04-14 16:22:33,933 INFO    MainThread:3883 [wandb_run.py:_redirect():2077] Wrapping output streams.
+2023-04-14 16:22:33,934 INFO    MainThread:3883 [wandb_run.py:_redirect():2102] Redirects installed.
+2023-04-14 16:22:33,935 INFO    MainThread:3883 [wandb_init.py:init():824] run started, returning control to user process
