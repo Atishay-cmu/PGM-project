@@ -1,30 +1,8 @@
-# MAMBA
-This code accompanies the paper "[Scalable Multi-Agent Model-Based Reinforcement Learning](https://arxiv.org/abs/2205.15023)".
+# Act-MARL
 
-The repository contains MAMBA implementation as well as fine-tuned hyperparameters in ```configs/dreamer/optimal``` folder.
+This code repository implements Act-MARL model, a Multi-Agent Model Based Reinforcement Learning Algorithm, that uses MAMBA"[Scalable Multi-Agent Model-Based Reinforcement Learning](https://arxiv.org/abs/2205.15023)" implementation of MAPPO. 
 
-## Usage
-
-```
-python3 train.py --n_workers 2 --env flatland --env_type 5_agents
-```
-
-Two environments are supported for env flag: flatland and starcraft.
-
-
-## SMAC
-
-<img height="300" alt="starcraft" src="https://user-images.githubusercontent.com/22059171/152656435-1634c15b-ca6d-4b23-9383-72fe3759b9e3.png">
-
-The code for the environment can be found at 
-[https://github.com/oxwhirl/smac](https://github.com/oxwhirl/smac)
-
-## Flatland
-
-<img height="300" alt="flatland" src="https://user-images.githubusercontent.com/22059171/152656405-b4ab7e6c-d691-4300-a419-a3d4288513e8.png">
-
-The original code for the environment can be found at 
-[https://github.com/jbr-ai-labs/NeurIPS2020-Flatland-Competition-Solution](https://github.com/jbr-ai-labs/NeurIPS2020-Flatland-Competition-Solution)
+The repository contains Act-MARL implementation as well as fine-tuned hyperparameters in ```configs/dreamer/optimal``` folder.
 
 ## Code Structure
 
@@ -39,21 +17,3 @@ The original code for the environment can be found at
   - ```workers``` contains logic for interacting with environment
 - ```env``` contains environment logic
 - ```networks``` contains neural network architectures
-
-
-## Citation
-
-    @inproceedings{10.5555/3535850.3535894,
-          author = {Egorov, Vladimir and Shpilman, Alexei},
-          title = {Scalable Multi-Agent Model-Based Reinforcement Learning},
-          year = {2022},
-          isbn = {9781450392136},
-          publisher = {International Foundation for Autonomous Agents and Multiagent Systems},
-          address = {Richland, SC},
-          booktitle = {Proceedings of the 21st International Conference on Autonomous Agents and Multiagent Systems},
-          pages = {381–390},
-          numpages = {10},
-          keywords = {communication, multi-agent reinforcement learning, model-based reinforcement learning},
-          location = {Virtual Event, New Zealand},
-          series = {AAMAS '22}
-    }
