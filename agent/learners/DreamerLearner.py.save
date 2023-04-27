@@ -91,12 +91,12 @@ class DreamerLearner:
         Path(config.LOG_FOLDER).mkdir(parents=True, exist_ok=True)
         global wandb
         import wandb
-        wandb.init(project="10708_pro2", dir=config.LOG_FOLDER)
+        wandb.init(project="10708_pro1", dir=config.LOG_FOLDER)
 
     def init_optimizers(self):
         self.model_optimizer = torch.optim.Adam(self.model.parameters(), lr=self.config.MODEL_LR)
-        self.action_model_optimizer = torch.optim.Adam(self.action_model.parameters(), lr=self.config.ACTION_MODEL_LR)
-        self.actor_optimizer = torch.optim.Adam(self.actor.parameters(), lr=self.config.ACTOR_LR)
+        self.action_model_optimizer = torch.optim.Adam(self.action_model.parameters(), lr=sel)
+        self.actor_optimizer = torch.optim.Adam(self.actor.parameters(), lr=self.config.ACTOR_LR, weight_decay=0.00001)
         self.critic_optimizer = torch.optim.Adam(self.critic.parameters(), lr=self.config.VALUE_LR)
 
     def params(self):

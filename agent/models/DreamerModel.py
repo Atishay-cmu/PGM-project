@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 from environments import Env
-from networks.dreamer.dense import DenseBinaryModel, DenseModel
+from networks.dreamer.dense import DenseBinaryModel, DenseModel   
 from networks.dreamer.vae import Encoder, Decoder
 from networks.dreamer.rnns import RSSMRepresentation, RSSMTransition
 

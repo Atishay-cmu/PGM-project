@@ -13,14 +13,16 @@ class DreamerConfig(Config):
     def __init__(self):
         super().__init__()
 
+        
+        self.TRAINING_START = 1000
         self.A_DISCRETE_LATENTS = False
-        self.A_N_LATENTS = 256
+        self.A_N_LATENTS = 2
         self.DISCRETE_LATENTS = True
         self.N_LATENTS = 256
         self.USE_LATENT_ACTIONS = True
 
         self.HIDDEN = 256
-        self.MODEL_HIDDEN = 256
+        self.MODEL_HIDDEN = 256 
         self.EMBED = 256
         self.N_CATEGORICALS = 32
         self.N_CLASSES = 32
@@ -46,18 +48,19 @@ class DreamerConfig(Config):
         self.IN_DIM = 30
         self.LOG_FOLDER = 'wandb/'
         self.NUM_AGENTS = 2
+        self.ALPHA_WEIGHT = 0.01 #should be 0.05
 
 
-        self.OBS_EMBED = 16
-        self.ACTION_EMBED = 32
+        self.OBS_EMBED = 256 
+        self.ACTION_EMBED = 256
         self.OPP = False
-        self.A_USE_RNN = False
+        self.A_USE_RNN = True
 
         self.A_HIDDEN = 256
         self.A_MODEL_HIDDEN = 256
         self.A_EMBED = 256
-        self.A_N_CATEGORICALS = 32
-        self.A_N_CLASSES = 32
+        self.A_N_CATEGORICALS = 16
+        self.A_N_CLASSES = 2
         if(self.A_DISCRETE_LATENTS):
           self.A_STOCHASTIC = self.A_N_CATEGORICALS * self.A_N_CLASSES
         else:
@@ -140,6 +143,7 @@ class A_RSSMStateDiscrete:
     stoch: torch.Tensor
     deter: torch.Tensor
     logits: torch.Tensor
+    log_probs: torch.Tensor
 
     def map(self, func):
         return A_RSSMStateDiscrete(**{key: func(val) for key, val in self.__dict__.items()})

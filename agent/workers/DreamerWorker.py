@@ -25,7 +25,7 @@ class DreamerWorker:
             return self.env.agents[handle].status in (RailAgentStatus.ACTIVE, RailAgentStatus.READY_TO_DEPART) \
                    and not self.env.obs_builder.deadlock_checker.is_deadlocked(handle)
 
-    def _select_actions(self, state, model, action_model, actor):
+    def _select_actions(self, state, model, action_model, actor, steps_done):
         avail_actions = []
         observations = []
         fakes = []
@@ -56,7 +56,7 @@ class DreamerWorker:
         observations = torch.cat(observations).unsqueeze(0)
         av_action = torch.stack(avail_actions).unsqueeze(0) if len(avail_actions) > 0 else None
         nn_mask = nn_mask.unsqueeze(0).repeat(8, 1, 1) if nn_mask is not None else None
-        actions = self.controller.step(observations, av_action, nn_mask, model, action_model, actor)
+        actions = self.controller.step(observations, av_action, nn_mask, model, action_model, actor, steps_done)
         return actions, observations, torch.cat(fakes).unsqueeze(0), av_action
 
     def _wrap(self, d):
@@ -84,7 +84,7 @@ class DreamerWorker:
         else:
             return steps_done < self.env.max_time_steps
 
-    def run(self, model, action_model, actor):
+    def run(self, model, action_model, actor, steps_done):
         #self.controller.receive_params(dreamer_params)
 
         state = self._wrap(self.env.reset())
@@ -93,7 +93,7 @@ class DreamerWorker:
 
         while True:
             steps_done += 1
-            actions, obs, fakes, av_actions = self._select_actions(state, model, action_model, actor)
+            actions, obs, fakes, av_actions = self._select_actions(state, model, action_model, actor, steps_done)
             next_state, reward, done, info = self.env.step([action.argmax() for i, action in enumerate(actions)])
             next_state, reward, done = self._wrap(deepcopy(next_state)), self._wrap(deepcopy(reward)), self._wrap(deepcopy(done))
             self.done = done

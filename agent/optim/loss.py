@@ -2,6 +2,7 @@ import numpy as np
 import torch
 import wandb
 import torch.nn.functional as F
+from torch.distributions import OneHotCategorical
 from configs.dreamer.DreamerAgentConfig import A_RSSMStateDiscrete, A_RSSMStateCont
 from agent.optim.utils import rec_loss, compute_return, state_divergence_loss, calculate_ppo_loss1, calculate_ppo_loss2, calculate_kl_gaussian,\
     batch_multi_agent, log_prob_loss, info_loss, new_kl_loss
@@ -62,6 +63,7 @@ def actor_rollout(obs, action, last, model, action_model, actor, critic, config)
         ########################################################################################################
         if(config.USE_LATENT_ACTIONS):
           prev_policy_latent_state = actor.initial_state(post.stoch.shape[0], n_agents, device=obs.device) #method 1
+          #prev_policy_latent_state = action_model.transition.initial_state(post.stoch.shape[0], n_agents, device=obs.device) #method 2
         else:
           prev_policy_latent_state = action_model.transition.initial_state(post.stoch.shape[0], n_agents, device=obs.device)
         prev_action_model_state = action_model.transition.initial_state(post.stoch.shape[0], n_agents, device=obs.device) #method 2
@@ -69,7 +71,7 @@ def actor_rollout(obs, action, last, model, action_model, actor, critic, config)
 
         items = rollout_policy(config, action_model, model, model.transition, model.av_action, config.HORIZON, actor, post, prev_action_model_state, prev_policy_latent_state)
     imag_feat = items["imag_states"].get_features()
-    imag_obs,_ = model.observation_decoder(imag_feat)
+    imag_obs = items["imag_obs"]#,_ = model.observation_decoder(imag_feat)
     imag_rew_feat = torch.cat([items["imag_states"].stoch[:-1], items["imag_states"].deter[1:]], -1)
     returns = critic_rollout(model, critic, imag_feat, imag_rew_feat, items["actions"],
                              items["imag_states"].map(lambda x: x.reshape(-1, n_agents, x.shape[-1])), config)
@@ -78,7 +80,7 @@ def actor_rollout(obs, action, last, model, action_model, actor, critic, config)
               items["old_policy"][:-1].detach(), imag_feat[:-1].detach(), imag_obs[:-1].detach(), returns.detach()]
     return [batch_multi_agent(v, n_agents) for v in output], detach(truncate_reshape(items["am_priors"], n_agents)),\
            detach(truncate_reshape(items["am_posteriors"], n_agents)),\
-           detach(truncate_reshape(items["prev_policy_latents"], n_agents))
+           detach(truncate_reshape(items["prev_policy_latents"], n_agents)), detach(truncate_reshape(items["policy_latents"], n_agents)) 
 
 
 def critic_rollout(model, critic, states, rew_states, actions, raw_states, config):
@@ -115,14 +117,16 @@ def select_latent_action(actor, prev_latent_state, observations):
     return actor_state
 
 
-def actor_loss(config, am_priors, am_posts, prev_policy_latents, imag_states, imag_obs, actions, av_actions, old_policy, advantage, actor, action_model, ent_weight):
+def actor_loss(config, am_priors, am_posts, prev_policy_latents, old_policy_latents, imag_states, imag_obs, actions, av_actions, old_policy, advantage, actor, action_model, ent_weight):
 
 
     #_, new_policy = actor(imag_states)
     if(config.USE_LATENT_ACTIONS):
       #method 1
       policy_latent_state = select_latent_action(actor, prev_policy_latents, imag_obs)
-      latent_action  = policy_latent_state.stoch
+      
+
+      # #method 2
       # if(config.A_DISCRETE_LATENTS):
       #   logits, stoch_state = actor(am_priors.deter)
       #   policy_latent_state = A_RSSMStateDiscrete(logits=logits, stoch=stoch_state, deter=am_priors.deter)
@@ -130,24 +134,34 @@ def actor_loss(config, am_priors, am_posts, prev_policy_latents, imag_states, im
       # else:
       #   mean, std, latent_action = actor(am_priors.deter) 
       #   policy_latent_state = A_RSSMStateCont(mean = mean, std = std, stoch=stoch_state, deter=am_priors.deter)     
-      _, new_policy = action_model.decode(latent_action) 
+
+      latent_action  = policy_latent_state.stoch
+      _, new_policy = action_model.decode(latent_action, policy_latent_state) 
     else:
       _, new_policy = actor(imag_obs)
     if av_actions is not None:
         new_policy[av_actions == 0] = -1e10
     actions = actions.argmax(-1, keepdim=True)
+
+    ##############################################################################
+    # old_log_probs = old_policy_latents.log_probs
+    # new_log_probs = policy_latent_state.log_probs
+    # rho_latent = torch.exp(new_log_probs - old_log_probs).mean(dim = -1, keepdim = True)
     rho = (F.log_softmax(new_policy, dim=-1).gather(2, actions) -
            F.log_softmax(old_policy, dim=-1).gather(2, actions)).exp()
-    # if(config.USE_LATENT_ACTIONS):           
-    #   ppo_loss, ent_loss, kl_loss = calculate_ppo_loss2(config, new_policy, rho, advantage, am_priors, am_posts, policy_latent_state)
-    #   if np.random.randint(10) == 9:
-    #       wandb.log({'Policy/Entropy': ent_loss.mean(), 'Policy/Mean action': actions.float().mean()})
-    #   return (ppo_loss + ent_loss.unsqueeze(-1) * ent_weight).mean() + kl_loss
-    # else:
-    ppo_loss, ent_loss = calculate_ppo_loss1(config, new_policy, rho, advantage)     
-    if np.random.randint(10) == 9:
-        wandb.log({'Policy/Entropy': ent_loss.mean(), 'Policy/Mean action': actions.float().mean()})
-    return (ppo_loss + ent_loss.unsqueeze(-1) * ent_weight).mean() 
+    
+    rho_all = rho# + #0.0*rho_latent
+    if(config.USE_LATENT_ACTIONS):           
+      ppo_loss, ent_loss, kl_loss = calculate_ppo_loss2(config, new_policy, rho_all, advantage, am_priors, am_posts, policy_latent_state)
+      if np.random.randint(10) == 9:
+          wandb.log({'Policy/Entropy': ent_loss.mean(), 'Policy/Imp_weight': rho.mean(), 'Policy/Kl_new': kl_loss.mean(),\
+                                                     'Policy/Latent_Imp_weight': 0.0 , 'Policy/Mean action': actions.float().mean()})
+      return (ppo_loss + ent_loss.unsqueeze(-1) * ent_weight).mean() + config.ALPHA_WEIGHT*kl_loss
+    else:
+      ppo_loss, ent_loss = calculate_ppo_loss1(config, new_policy, rho, advantage)     
+      if np.random.randint(10) == 9:
+          wandb.log({'Policy/Entropy': ent_loss.mean(), 'Policy/Imp_weight': rho.mean(), 'Policy/Mean action': actions.float().mean()})
+      return (ppo_loss + ent_loss.unsqueeze(-1) * ent_weight).mean() 
 
 
 

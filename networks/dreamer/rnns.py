@@ -130,11 +130,16 @@ def get_latent_action_states(ac_model, obs, prev_latent_state):
 
 def update_action_model_state(config, action_model, action_model_state, action):
 
-    action_embed = action_model.action_encoder(action)
+
+    if(config.OPP):
+      joint_action = action.reshape(-1, config.NUM_AGENTS*action.shape[-1]).unsqueeze(dim = 1).expand(-1, config.NUM_AGENTS, -1)
+      action_embed = action_model.action_encoder(joint_action)     
+    else:
+      action_embed = action_model.action_encoder(action)
     x = torch.cat([action_model_state.deter, action_embed], dim=-1)
     if(config.A_DISCRETE_LATENTS):
-      logits, stoch_state = action_model.representation._stochastic_posterior_model(x)
-      posterior_state = A_RSSMStateDiscrete(logits=logits, stoch=stoch_state, deter=action_model_state.deter)
+      logits, stoch_state, log_probs = action_model.representation._stochastic_posterior_model(x)
+      posterior_state = A_RSSMStateDiscrete(logits=logits, stoch=stoch_state, deter=action_model_state.deter, log_probs = log_probs)
     else:
       mean, std, stoch_state = action_model.representation._stochastic_posterior_model(x)
       posterior_state = A_RSSMStateCont(mean = mean, std = std, stoch=stoch_state, deter=action_model_state.deter)  
@@ -156,13 +161,13 @@ def rollout_policy(config, action_model, model, transition_model, av_action, ste
     av_actions = []
     policies = []
     imag_observations = []
-
+    policy_latent_states = []
     action_model_priors, action_model_posteriors, prev_policy_latent_states = [], [], []
     for t in range(steps):
         feat = state.get_features().detach()
         imag_obs, _ = model.observation_decoder(feat)
         action_model_state = get_latent_action_states(action_model, imag_obs, prev_action_model_state)
-        
+ 
         if(config.USE_LATENT_ACTIONS):
           #method 1
           policy_latent_state = select_latent_action(policy, prev_policy_latent_state, imag_obs)
@@ -170,15 +175,17 @@ def rollout_policy(config, action_model, model, transition_model, av_action, ste
           #method 2
 
           # if(config.A_DISCRETE_LATENTS):
-          #   logits, stoch_state = actor(action_model_state.deter)
+          #   logits, stoch_state = policy(action_model_state.deter)
           #   policy_latent_state = A_RSSMStateDiscrete(logits=logits, stoch=stoch_state, deter=action_model_state.deter)
 
           # else:
-          #   mean, std, latent_action = actor(action_model_state.deter) 
+          #   mean, std, latent_action = policy(action_model_state.deter) 
           #   policy_latent_state = A_RSSMStateCont(mean = mean, std = std, stoch=stoch_state, deter=action_model_state.deter)  
 
-          latent_action  = policy_latent_state.stoch          
-          action, pi = action_model.decode(latent_action) 
+          latent_action  = policy_latent_state.stoch   
+
+        
+          action, pi = action_model.decode(latent_action, policy_latent_state)
         else:
           action, pi = policy(imag_obs)
 
@@ -191,14 +198,18 @@ def rollout_policy(config, action_model, model, transition_model, av_action, ste
         next_states.append(state)
         action_model_priors.append(action_model_state)
         prev_policy_latent_states.append(prev_policy_latent_state)
+        policy_latent_states.append(policy_latent_state)
         policies.append(pi)
         imag_observations.append(imag_obs)
         actions.append(action)
         state = transition_model(action, state)
+
+
+
         if(config.USE_LATENT_ACTIONS):
           if(config.A_DISCRETE_LATENTS):
             prev_policy_latent_state = A_RSSMStateDiscrete(logits=policy_latent_state.logits.clone(), stoch=policy_latent_state.stoch.clone(),\
-                                              deter=policy_latent_state.deter.clone()) 
+                                              deter=policy_latent_state.deter.clone(), log_probs=policy_latent_state.log_probs.clone()) 
           else:
             prev_policy_latent_state = A_RSSMStateCont(mean=policy_latent_state.mean.clone(), std=policy_latent_state.std.clone(), stoch=policy_latent_state.stoch.clone(),\
                                              deter=policy_latent_state.deter.clone())             
@@ -208,9 +219,10 @@ def rollout_policy(config, action_model, model, transition_model, av_action, ste
         prev_action_model_state = deepcopy(posterior_state)
         
     return {"imag_states": stack_states(next_states, dim=0),
-            "imag_obs": torch.stack(imag_observations, dim=0),
+            "imag_obs":torch.stack(imag_observations, dim=0),
             "am_priors": a_stack_states(action_model_priors, config, dim=0),
             "am_posteriors": a_stack_states(action_model_posteriors, config, dim=0),
+            "policy_latents": a_stack_states(policy_latent_states, config, dim=0),
             "prev_policy_latents": a_stack_states(prev_policy_latent_states, config, dim=0),
             "actions": torch.stack(actions, dim=0),
             "av_actions": torch.stack(av_actions, dim=0) if len(av_actions) > 0 else None,

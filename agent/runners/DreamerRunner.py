@@ -47,7 +47,7 @@ class DreamerRunner:
         cur_steps, cur_episode = 0, 0
         stats = []
         while True:
-            rollout, info = self.worker.run(self.learner.model, self.learner.action_model, self.learner.actor)
+            rollout, info = self.worker.run(self.learner.model, self.learner.action_model, self.learner.actor, cur_steps)
             
             cur_steps += info["steps_done"]
             self.learner.step(rollout, cur_steps)

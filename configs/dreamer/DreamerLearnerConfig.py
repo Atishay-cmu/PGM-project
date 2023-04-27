@@ -5,6 +5,7 @@ from configs.dreamer.DreamerAgentConfig import DreamerConfig
 class DreamerLearnerConfig(DreamerConfig):
     def __init__(self):
         super().__init__()
+        self.ACTION_MODEL_LR = 1.5e-4
         self.MODEL_LR = 2e-4
         self.ACTOR_LR = 5e-4
         self.VALUE_LR = 5e-4
@@ -13,15 +14,16 @@ class DreamerLearnerConfig(DreamerConfig):
         self.MODEL_EPOCHS = 60
         self.EPOCHS = 2#4
         self.PPO_EPOCHS = 5
-        self.MODEL_BATCH_SIZE = 40
+        self.MODEL_BATCH_SIZE = 80
         self.BATCH_SIZE = 40
         self.SEQ_LENGTH = 20
         self.N_SAMPLES = 1
         self.TARGET_UPDATE = 1
         self.DEVICE = 'cuda:0'
         self.GRAD_CLIP = 100.0
-        self.HORIZON = 5#15
+        self.HORIZON = 15
         self.ENTROPY = 0.001
+        #self.ALPHA_ANNEALING = 0.9997
         self.ENTROPY_ANNEALING = 0.99998
         self.GRAD_CLIP_POLICY = 100.0
 

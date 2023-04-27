@@ -2,9 +2,35 @@ import numpy as np
 import torch
 from torch import nn
 from torch.nn import functional as F
+from torch import distributions as torchd
 
+class OneHotDist(torchd.one_hot_categorical.OneHotCategorical):
+    def __init__(self, logits=None, probs=None, unimix_ratio=0.0, use_mix = True):
+        if logits is not None and unimix_ratio > 0.0 and use_mix:
+            probs = F.softmax(logits, dim=-1)
+            probs = probs * (1.0 - unimix_ratio) + unimix_ratio / probs.shape[-1]
+            logits = torch.log(probs)
+            super().__init__(logits=logits, probs=None)
+        else:
+            super().__init__(logits=logits, probs=probs)
 
-def rec_loss(decoder, z, x, fake):
+    def mode(self):
+        _mode = F.one_hot(
+            torch.argmax(super().logits, axis=-1), super().logits.shape[-1]
+        )
+        return _mode.detach() + super().logits - super().logits.detach()
+
+    def sample(self, sample_shape=(), seed=None):
+        if seed is not None:
+            raise ValueError("need to check")
+        sample = super().sample(sample_shape)
+        probs = super().probs
+        while len(probs.shape) < len(sample.shape):
+            probs = probs[None]
+        sample += probs - probs.detach()
+        return sample
+
+def rec_loss(decoder, z, x, fake, ):
     x_pred, feat = decoder(z)
     batch_size = np.prod(list(x.shape[:-1]))
     gen_loss1 = (F.smooth_l1_loss(x_pred, x, reduction='none') * fake).sum() / batch_size
@@ -12,10 +38,13 @@ def rec_loss(decoder, z, x, fake):
 
 
 
-def action_rec_loss(model, z, actions, fake):
+def action_rec_loss(model, z, actions, fake, av_actions):
+
+    invalid_idxes = av_actions == 0
     action_feat = F.relu(model.action_decoder1(z))
     action_logits = model.action_decoder2(action_feat)
-    return (fake * action_information_loss(action_logits, actions)).mean(), action_feat
+    #invalid_loss = (fake * (torch.abs(action_logits[invalid_idxes] - 1e-10))).mean()
+    return (fake * action_information_loss(action_logits, actions)).mean(), action_feat#, invalid_loss,
 
 
 def info_loss2(feat, model, action_diff, fake): #for predicting action diff
@@ -27,7 +56,7 @@ def info_loss1(feat, model, obs, fake): #for predicting observations
     x_pred, _ = model.q_features_obs(feat)
     batch_size = np.prod(list(obs.shape[:-1]))
     gen_loss1 = (F.smooth_l1_loss(x_pred, obs, reduction='none') * fake).sum() / batch_size
-    return gen_loss1
+    return gen_loss1 
 
 
 def ppo_loss(A, rho, eps=0.2):
@@ -44,7 +73,7 @@ def entropy_loss(prob, logProb):
 
 def new_kl_loss(config, p, q):
   if(config.A_DISCRETE_LATENTS):
-    return state_divergence_loss(p, q, config)
+    return state_divergence_loss(p, q, config, action = True)
   else:
     return calculate_kl_gaussian(q, p, config)
 
@@ -62,7 +91,8 @@ def calculate_ppo_loss2(config, logits, rho, A, am_prior, am_post, policy_latent
     logProb = F.log_softmax(logits, dim=-1)
     polLoss = ppo_loss(A, rho)
     entLoss = entropy_loss(prob, logProb)
-    klLoss = new_kl_loss(config, am_prior, policy_latent)
+    #klLoss = new_kl_loss(config, am_prior, policy_latent)
+    klLoss = new_kl_loss(config, am_post, policy_latent)
     return polLoss, entLoss, klLoss
 
 def calculate_ppo_loss1(config, logits, rho, A):
@@ -110,7 +140,11 @@ def kl_div_categorical(p, q):
     return (p * (torch.log(p + eps) - torch.log(q + eps))).sum(-1)
 
 
-def reshape_dist(dist, config):
+
+def reshape_dist(dist, config, action):
+  if(action):
+    return dist.get_dist(dist.deter.shape[:-1], config.A_N_CATEGORICALS, config.A_N_CLASSES)
+  else:
     return dist.get_dist(dist.deter.shape[:-1], config.N_CATEGORICALS, config.N_CLASSES)
 
 def calculate_kl_gaussian(q, p, config):
@@ -121,9 +155,9 @@ def calculate_kl_gaussian(q, p, config):
     return torch.mean(kl)
 
 
-def state_divergence_loss(prior, posterior, config, reduce=True, balance=0.2):
-    prior_dist = reshape_dist(prior, config)
-    post_dist = reshape_dist(posterior, config)
+def state_divergence_loss(prior, posterior, config, reduce=True, balance=0.2, action = False):
+    prior_dist = reshape_dist(prior, config, action)
+    post_dist = reshape_dist(posterior, config, action)
     post = kl_div_categorical(post_dist, prior_dist.detach())
     pri = kl_div_categorical(post_dist.detach(), prior_dist)
     kl_div = balance * post.mean(-1) + (1 - balance) * pri.mean(-1)
